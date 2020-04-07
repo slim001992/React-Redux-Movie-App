@@ -32,7 +32,7 @@ class Edit extends Component {
     render() {
         return (
             <section>
-                <input type="button" value="Edit" onClick={() => this.openModal()} />
+                <input className="btn btn-primary" type="button" value="Edit" onClick={() => this.openModal()} />
                 <Modal visible={this.state.visible} width="400" height="300" effect="fadeInUp" onClickAway={() => this.closeModal()}>
                     <div>
                         <h1>Edit</h1>

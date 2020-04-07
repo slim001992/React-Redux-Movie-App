@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { v4 as uuidv4 } from 'uuid';
 import { addTask } from '../js/actions/actions'
 class Movieadd extends Component {
-    state = { title: '', rating: '', year: '', image: '', id: uuidv4() }
+    state = { title: '', rating: '', year: '', image: '',description:'', id: uuidv4() }
     handleChange = evt => { this.setState({ [evt.target.name]: evt.target.value }); }
     handleOk = () => {
   
@@ -13,6 +13,7 @@ class Movieadd extends Component {
                 title: this.state.title,
                 rating: this.state.rating,
                 year: this.state.year,
+                description: this.state.description,
                 id: uuidv4()
             })
             
@@ -20,7 +21,8 @@ class Movieadd extends Component {
                 title: "",
                 year: "",
                 image: "",
-                rating: ""
+                rating: "",
+                description:'',
             });
     };
 
@@ -50,7 +52,10 @@ class Movieadd extends Component {
                                             <input className="form-control mr-sm-2" value={this.state.title} type="text" name="title" onChange={this.handleChange} placeholder="title" />
                                             <input className="form-control mr-sm-2" value={this.state.image} type="url" name="image" onChange={this.handleChange} placeholder="image" />
                                             <input className="form-control mr-sm-2" maxLength="4" value={this.state.year} type="number" name="year" onChange={this.handleChange} placeholder="Year" />
-                                            <input className="form-control mr-sm-2" maxLength="1" value={this.state.rating} type="number" name="rating" onChange={this.handleChange} placeholder="Rating" />
+                                    
+                                           <input className="form-control mr-sm-2" maxLength="1" value={this.state.rating} type="number" name="rating" onChange={this.handleChange} placeholder="Rating" />
+                                           <input className="form-control mr-sm-2" value={this.state.description} type="text" name="description" onChange={this.handleChange} placeholder="description" />
+                                       
                                         </div>
                                         <div className="modal-footer">
                                             <button type="button" className="btn btn-primary" data-dismiss="modal" onClick={this.handleOk}>Add</button>
